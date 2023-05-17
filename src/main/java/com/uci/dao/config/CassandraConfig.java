@@ -119,12 +119,16 @@ public class CassandraConfig extends AbstractReactiveCassandraConfiguration {
                 "messageId text, " +
                 "replyId text, " +
                 "causeId text, " +
+                "sessionId uuid, " +
+                "ownerOrgId text, " +
+                "ownerId text, " +
+                "botUuid uuid, " +
                 "PRIMARY KEY ((userId,fromId), timestamp)) " +
                 "WITH CLUSTERING ORDER BY (timestamp DESC)");
-        allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD sessionId uuid;");
-        allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD ownerOrgId text;");
-        allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD ownerId text;");
-        allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD botUuid uuid;");
+        // allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD sessionId uuid;");
+        // allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD ownerOrgId text;");
+        // allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD ownerId text;");
+        // allScripts.add("ALTER TABLE " + keyspace + ".XMessage ADD botUuid uuid;");
 
 //        allScripts.add("CREATE INDEX IF NOT EXISTS message_state_index\n" +
 //                "ON "+keyspace
